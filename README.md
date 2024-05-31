@@ -1,0 +1,1 @@
+Program usage : bash protopass <bag_file_1> <bag_file_2>

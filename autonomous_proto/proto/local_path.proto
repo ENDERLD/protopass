@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package autonomous_proto;
+
+import "google/protobuf/wrappers.proto";
+import "message_info.proto";
+import "navigation.proto";
+import "vehicle_state.proto";
+
+message LocalPath {
+  message Direction {
+    enum Value {
+      unknown = 0;
+      forward = 1;
+      backward = -1;
+    }
+  }
+  message Point {
+    google.protobuf.DoubleValue lat = 1;
+    google.protobuf.DoubleValue lon = 2;
+    google.protobuf.DoubleValue alt = 3;
+  }
+
+  MessageInfo header = 1;
+  Direction.Value direction = 2;
+  repeated Point points = 3;
+  repeated Navigation navigations = 4;
+  repeated VehicleState vehicle_states = 5;
+}
